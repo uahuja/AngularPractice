@@ -1,0 +1,26 @@
+
+
+import {Component} from '@angular/core';
+
+
+@Component({
+    selector : "courses",
+  
+    template : ` <h3>{{title}}</h3>
+                <input (keyup)="onKeyUp($event)"/>
+                <input (keyup.enter)="onKeyUp2()"/>
+                `                                               
+                                                                
+})
+
+export class CoursesComponent{
+    title=" Button Test ";
+    onKeyUp($event){
+        if($event.keyCode===13){
+            console.log("enter is pressed");
+        }
+    }
+    onKeyUp2(){
+        console.log("Enter2ispressed");
+    }
+} 

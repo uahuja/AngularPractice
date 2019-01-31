@@ -1,0 +1,27 @@
+
+
+import {Component} from '@angular/core';
+
+
+@Component({
+    selector : "courses",
+  
+    template : ` <h3>{{title}}</h3>
+                 <input [value]="email" (keyup.enter)=" email = $event.target.value; onKeyUp1()"/>
+                 <input [(ngModel)]="email" (keyup.enter)="onKeyUp2()"/>
+                `                                              
+                                                                
+})
+ 
+export class CoursesComponent{
+    title=" Button Test ";
+    email="abcd@xample.com";
+    onKeyUp1(){    
+        console.log(this.email);
+    }
+
+
+    onKeyUp2(){    
+        console.log(this.email);
+    }
+} 
