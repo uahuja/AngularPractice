@@ -1,0 +1,27 @@
+course.component.ts
+
+import {Component} from '@angular/core';
+
+
+@Component({
+    selector : "courses",
+  
+    template : ` <h3>{{title}}</h3>
+                <button class="btn btn-primary">Save</button>           
+                `                                               // btn class for normal button , btn-primary for Blue color of button
+                                                                 
+                                                                
+})
+
+export class CoursesComponent{
+    title=" Button Test ";
+    
+} 
+
+Style.css
+
+@import "~bootstrap//dist/css/bootstrap.css";
+
+body {
+    padding: 20px;
+}

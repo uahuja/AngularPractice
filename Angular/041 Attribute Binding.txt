@@ -1,0 +1,25 @@
+
+
+import {Component} from '@angular/core';
+
+
+@Component({
+    selector : "courses",
+  
+    template : `
+                <h2> {{ title }}</h2>                                
+                <img  [src]="imageUrl"/>
+                <table>
+                    <tr>
+                        <td [attr.colspan]="colspan"></td>
+                    </tr>
+                </table>
+                `                                               // 1. String interpolation way   2.Property Binding        
+                                                                
+})
+
+export class CoursesComponent{
+    title=" Title :: List of Courses ";
+    imageUrl = "http://lorempixel.com/800/800/";
+    colspan=2;
+} 

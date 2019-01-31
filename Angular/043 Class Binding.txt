@@ -1,0 +1,20 @@
+
+
+import {Component} from '@angular/core';
+
+
+@Component({
+    selector : "courses",
+  
+    template : ` <h3>{{title}}</h3>
+                <button [style.backgroundColor]="isActive ? 'blue' :'yellow' ">Save</button>           
+                `                                               
+                                                                
+})
+
+export class CoursesComponent{
+    title=" Button Test ";
+    isActive=false;
+    // isActive=false;
+    
+} 

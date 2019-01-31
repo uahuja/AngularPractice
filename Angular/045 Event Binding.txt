@@ -1,0 +1,27 @@
+
+
+import {Component} from '@angular/core';
+
+
+@Component({
+    selector : "courses",
+  
+    template : ` <h3>{{title}}</h3>
+                <div (click)="onDivClicked()">
+                    <button (click)="onSave($event)">Save</button>
+                </div>
+                `                                               
+                                                                
+})
+
+export class CoursesComponent{
+    title=" Button Test ";
+    onDivClicked(){
+        console.log("Div was Clicked");
+    }
+    onSave($event){
+        $event.stopPropagation();                        //to stop the event from hitting the second handler.
+        console.log("Button was clicked",$event);
+    }
+    
+} 

@@ -1,0 +1,19 @@
+class Point 
+{
+    
+    constructor(private x?:number, private y?:number)              // ? : makes the parameters OPTIONAL as multiple constructors not present in TS
+                                                                    // no need to initialise and declare variables if we use this method
+    {    }
+    draw(){
+        console.log("X is :"+ this.x + "Y is :"+ this.y)
+    }
+}
+
+let point =new Point(3,4);
+point.draw();             // here y and x are unefined (as no values given by default)
+
+let point1=new Point(7,8);
+/* point1.x=1;
+point1.y=6; */                     //but here we can change the values of x and y (to stop this access modifiers are present)
+point1.draw();
+

@@ -1,0 +1,23 @@
+import {Component} from '@angular/core';
+
+
+@Component({
+    selector : "courses",
+  //  template : "<h2>{{getTitle()}}</h2>"                          // dynamically rendering the element  {{}}
+    template : `
+                <h2>{{getTitle()}}</h2>
+                <ul>
+                    <li *ngFor="let course of courses">             
+                        {{course}}
+                    </li>
+                </ul>  
+                `                                                    //in real world this list is brought by server and this is done by SERVICES
+})
+
+export class CoursesComponent{
+    title=" Title :: List of Courses ";
+    courses = [ "course1" , "course2", "course3"];
+    getTitle(){
+        return this.title;
+    }
+}

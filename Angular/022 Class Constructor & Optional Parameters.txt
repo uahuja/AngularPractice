@@ -1,0 +1,21 @@
+class Point 
+{
+    x:number;
+    y:number;
+    constructor(x?:number,y?:number)              // ? : makes the parameters optional as multiple constructors not present in TS
+    {
+        this.x=x;
+        this.y=y;
+    }
+    draw(){
+        console.log("X is :"+ this.x + "Y is :"+ this.y)
+    }
+}
+
+let point =new Point(3,4);
+point.draw();             // here y and x are unefined (as no values given by default)
+
+let point1=new Point();
+point1.x=1;
+point1.y=6;
+point1.draw();

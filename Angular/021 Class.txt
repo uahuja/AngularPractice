@@ -1,0 +1,16 @@
+class Point 
+{
+    x:number;
+    y:number;
+    draw(){
+        console.log("X is :"+ this.x + "Y is :"+ this.y)
+    }
+}
+
+let point =new Point();
+point.draw();             // here y and x are unefined (as no values given by default)
+
+let point1=new Point();
+point1.x=1;
+point1.y=6;
+point1.draw();

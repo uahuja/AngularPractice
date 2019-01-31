@@ -1,0 +1,29 @@
+LIKE.COMPONENTS.ts
+
+export class LikeComponent{
+    
+    constructor(private _likesCount : number , private _isSelected:boolean){
+    }
+    onClick(){
+        this._likesCount += (this._isSelected) ? -1 : 1;
+        this._isSelected=!this._isSelected;            // Toggle (changes its nature acc to the situation)
+    }
+    get likesCount(){
+        return this._likesCount;
+    }
+    get isSelected(){
+        return this._isSelected;
+    }
+}
+
+
+MAIN.ts
+
+import { LikeComponent } from './like.component';
+
+let component = new LikeComponent (10,true);
+component.onClick();
+console.log(`likes : ${component.likesCount} ,  isSelected : ${component.isSelected}`);      // here likes count and isSelected are the properties (getter methods)
+
+
+

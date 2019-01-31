@@ -1,0 +1,22 @@
+let drawPoint = (point :{x:number,y:number})=>{
+    console.log(point.x+ point.y);
+}
+drawPoint({
+    x:1,
+    y:2
+});
+
+
+interface Point 
+{
+    x:number,
+    y:number
+}
+
+let drawPoint1 = (point :Point)=>{
+    console.log(point.x+ point.y);
+}
+drawPoint1({
+    x:4,
+    y:5
+});
