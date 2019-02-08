@@ -1,0 +1,83 @@
+app.components.ts
+
+import { Component } from '@angular/core';
+
+
+
+@Component({
+  selector: 'app-root',
+  template : '<h1>first angular App>',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  post ={
+    title : 'hello-world',
+    isFavorite: true
+}
+onFavoriteChange(eventArgs : FavoriteChangedEventArgs ){        
+  console.log("FavoriteChanged : ", eventArgs);       
+}
+}
+
+
+
+
+
+
+
+app.component.html
+
+
+
+<app-favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChange($event)"> </app-favorite>        <!-- here isfavorite is INPUT Property and (change) is OUTPUT property-->
+
+
+
+
+
+
+
+
+
+
+favorite.component.ts (create using ng g c favorite and then edit )
+
+
+import { Component, OnInit , Input , Output, EventEmitter } from '@angular/core';      //imporing the decorator component Input
+
+@Component({
+  selector: 'app-favorite',
+  templateUrl: './favorite.component.html',
+  styleUrls: ['./favorite.component.css']
+ // inputs : ['isFavorite']                   //not the good way                      
+})
+export class FavoriteComponent implements OnInit {
+  @Input() isFavorite : boolean;        //so that it could be used in property binding
+  @Output()  change =new EventEmitter();
+  constructor() { }
+
+  ngOnInit() {
+  }
+  onClick(){
+    this.isFavorite=!this.isFavorite;
+    this.change.emit({newValue: this.isFavorite});
+  }
+}
+interface FavoriteChangedEventArgs{
+  newValue : boolean
+}
+
+
+
+
+
+
+favorite.component.html
+
+
+<span
+  class = "glyphicon"
+  [class.glyphicon-star]="isFavorite"
+  [class.glyphicon-star-empty]= "!isFavorite"
+  (click)="onClick()"></span>

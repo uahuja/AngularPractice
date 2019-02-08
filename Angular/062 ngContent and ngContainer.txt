@@ -1,0 +1,48 @@
+app.component.html
+
+
+
+<app-panel>
+    <ng-container class="heading">Heading</ng-container>
+    <div class="body">
+        <h2>body</h2>
+        <p>Some cotent here...</p>
+    </div>
+</app-panel>
+
+
+
+
+panel.component.html
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <ng-content select=".heading"></ng-content>
+  </div>
+  <div class="panel-body">
+    <ng-content select=".body"></ng-content>
+  </div>
+</div>
+
+
+
+
+panel.component.ts
+
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-panel',
+  templateUrl: './panel.component.html',
+  styleUrls: ['./panel.component.css']
+})
+export class PanelComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+  
+}

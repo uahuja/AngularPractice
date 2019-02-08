@@ -1,0 +1,32 @@
+app.component.ts
+
+
+import { Component } from '@angular/core';
+
+
+@Component({
+  selector: 'app-root',
+  template : '<h1>first angular App>',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  courses =[1,2];
+}
+
+
+
+app.component.html
+
+
+
+<div *ngIf="courses.length > 0 ; then courseList  else noCourses ">
+        List of courses
+      </div>
+      <ng-template #noCourses>
+        No Courses Yet
+      </ng-template>
+      <ng-template #courseList>
+            Some list
+          </ng-template>
+      

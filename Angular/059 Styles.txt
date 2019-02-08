@@ -1,0 +1,52 @@
+favorite.component.html
+
+
+<style>
+  .glyphicon{
+    color: blue;
+  }
+  
+</style>
+<span
+  class = "glyphicon"
+  [class.glyphicon-star]="isFavorite"
+  [class.glyphicon-star-empty]= "!isFavorite"
+  (click)="onClick()"></span>
+
+
+
+favorite.component.ts
+
+
+import { Component, OnInit , Input , Output, EventEmitter } from '@angular/core';      //imporing the decorator component Input
+
+@Component({
+  selector: 'app-favorite',
+  templateUrl: './favorite.component.html',
+  styleUrls: ['./favorite.component.css'],
+  styles : [`
+              .glyphicon{
+                  color : blue;
+                }
+              .glyphicon-star{
+                 background: black;
+              }   
+          ` ]                    
+})
+export class FavoriteComponent {
+  @Input('isFavorite') isFavorite : boolean;        //so that it could be used in property binding
+  @Output('change')  change =new EventEmitter();
+
+
+  nClick(){
+    this.isFavorite=!this.isFavorite;
+    this.change.emit({newValue: this.isFavorite});
+  }
+ 
+}
+export interface FavoriteChangedEventArgs{
+  newValue : boolean
+}
+
+
+
