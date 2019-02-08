@@ -1,0 +1,32 @@
+app.component.html
+
+
+
+<!-- <span *ngIf="task.assignee">  {{  task.assignee.name}} </span> -->
+
+<span *ngIf="task.assignee">  {{  task.assignee?.name}} </span>
+
+
+app.component.ts
+
+
+mport { Component } from '@angular/core';
+
+
+
+
+@Component({
+  selector: 'app-root',
+  template : '<h1>first angular App>',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  task = {
+    title : 'Review Applications',
+    assignee : null  /* {
+      name : 'John Snow'
+    } */
+  }
+ 
+}

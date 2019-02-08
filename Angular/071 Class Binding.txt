@@ -1,0 +1,12 @@
+app.favorite.html
+
+
+<span
+  class = "glyphicon"
+
+  [ngClass]="{
+    'glyphion-star' : isSelected,
+    'glyphicon-star-empty' : !isSelected
+  }"
+  (click)="onClick()">
+</span>

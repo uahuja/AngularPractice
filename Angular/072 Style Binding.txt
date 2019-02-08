@@ -1,0 +1,42 @@
+app.component.html
+
+
+
+<!-- <button 
+    [style.backgroundColor] = "canSave ? 'yellow' : 'blue'" 
+    [style.color]= "canSave ? 'white' : 'black '"
+    [style.fontWeight] = " canSave ? 'bold' : 'normal '"
+    >
+        Save -->
+
+
+
+        <button
+        [ngStyle] = "{
+            'backgroundColor' : canSave ? 'yellow' : 'blue',
+            'color'  : canSave ? 'white' : 'black ',
+            'fontWeight'  : canSave ? 'bold' : 'normal '  
+        }">save       
+</button>
+
+
+app.component.ts
+
+
+
+import { Component } from '@angular/core';
+
+
+
+
+@Component({
+  selector: 'app-root',
+  template : '<h1>first angular App>',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  canSave=false;
+  courses; 
+ 
+}
