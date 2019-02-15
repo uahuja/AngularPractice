@@ -1,0 +1,10 @@
+in global style.css
+---------------------------------------------------
+.form-control.ng-touched.ng-invalid {
+    border : 2px solid red;
+}
+
+---------------------------------------------------
+
+These are three classes which would be applied when an invalid input is entered in the fields.
+hence applying the style to only that element which has all the three 
