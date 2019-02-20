@@ -1,0 +1,50 @@
+new-topic-form.comp.ts
+
+import { FormGroup, FormArray, FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'new-course-form',
+  templateUrl: './new-course-form.component.html',
+  styleUrls: ['./new-course-form.component.css']
+})
+export class NewCourseFormComponent{ 
+
+form = new FormGroup({
+  topics : new FormArray( [] )            //  Abstract Control array : Empty Array which will contain all the topics
+})
+
+addTopic(topic : HTMLInputElement){
+  /* this.form.get('topics').push */
+  /* (this.form.get('topics') as FormArray).push(new FormControl(topic.value)) */
+  this.topics.push(new FormControl(topic.value))
+  topic.value="";
+}
+
+get topics(){
+  return this.form.get('topics') as FormArray;
+}
+
+removeTopic(topic : FormControl){
+  let index= this.topics.controls.indexOf(topic);
+  this.topics.removeAt(index);
+}
+}
+
+  ***************************************************
+new-topic-form.comp.html
+
+<form>
+  <input  
+    type = "text" class=" form-control"
+    (keyup.enter)="addTopic(topic)"  #topic>
+    <ul class="list-group">
+      <!-- *ngFor="let topic of form.get('topics').controls" -->             
+      <li
+        *ngFor="let topic of topics.controls"
+        (click) = "removeTopic(topic)"
+        class="list-group-item">
+      {{ topic.value}}
+    </li>
+    </ul>
+</form>

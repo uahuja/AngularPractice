@@ -1,0 +1,55 @@
+new-topic-form.comp.ts (rest is Same)
+
+
+import { FormGroup, FormArray, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'new-course-form',
+  templateUrl: './new-course-form.component.html',
+  styleUrls: ['./new-course-form.component.css']
+})
+export class NewCourseFormComponent{ 
+
+  form;
+/* form = new FormGroup({
+  name : new FormControl('', Validators.required),
+  contact : new FormGroup({
+    email : new FormControl,
+    phone : new FormControl
+  }),
+  topics : new FormArray( [] )            //  Abstract Control array : Empty Array which will contain all the topics
+}) */
+
+constructor(fb : FormBuilder){
+  this.form = fb.group({
+    name : [ '', Validators.required],             //ANOTHER WAY OF INITIALISATION
+    contact : fb.group({
+      email : [],
+      phone : []
+    }),
+    topics : fb.array([])
+  });
+}
+
+
+
+
+addTopic(topic : HTMLInputElement){
+  /* this.form.get('topics').push */
+  /* (this.form.get('topics') as FormArray).push(new FormControl(topic.value)) */
+  this.topics.push(new FormControl(topic.value))
+  topic.value="";
+}
+
+get topics(){
+  return this.form.get('topics') as FormArray;
+}
+
+removeTopic(topic : FormControl){
+  let index= this.topics.controls.indexOf(topic);
+  this.topics.removeAt(index);
+}
+}
+
+  
