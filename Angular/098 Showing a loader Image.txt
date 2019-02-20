@@ -1,0 +1,15 @@
+signup.comp.html
+
+
+use pending property of a promise (or a network call)
+
+<input 
+
+        formControlName="username"
+        id="username" 
+        type="text" 
+        class="form-control">
+    </div>
+<div *ngIf="username.pending">checking for Uniqueness.........</div>
+
+***********************************************************************
